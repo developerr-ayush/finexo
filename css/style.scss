@@ -19,6 +19,7 @@ $prifont: "Open Sans", sans-serif;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-items: center;
 }
 html{
     font-size: 15px;
@@ -44,12 +45,13 @@ header{
     left: 0;
     width: 100%;
     background-color: #002b64;
-    z-index: 200;
 }
 nav{
     width: 100%;
     padding: 30px;
     position: fixed;
+    z-index: 200;
+    height: 100px;
 
     .logo{
         font-size: 1.5rem;
@@ -70,8 +72,75 @@ nav{
             padding: 4px;
         }
     }
+    .menu{
+        display: none;
+    }
+    @media (max-width:767px) {
+        .menu{
+            display: block;
+        }
+        ul.flexbox{
+            display:none;
+            position: absolute;
+            right: 0;
+            top: 100px;
+            background-color: #002b64;
+            height: 900px;
+            width: 30%;
+            li{
+                line-height: 2;
+                margin-left: 20px;
+                text-align: center; 
+            }
+
+        }
+    }
   
 }
+
+// nav icon 
+.menu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+}
+.line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.line2 {
+  stroke-dasharray: 60 60;
+  stroke-width: 6;
+}
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+
 
 .banner{
     .owl-dot.active span{
@@ -92,11 +161,14 @@ nav{
     .flexbox{
         align-items: center;
         padding: 5% ;
+        flex-wrap: wrap-reverse;
 
         div{
             width: 49%;
 
         }
+      
+       
         img{
             width: 100%;
            
@@ -133,9 +205,29 @@ nav{
                }
            }
         }
+        @media (max-width:767px) {
+            div{
+                width: 100%;
+                margin-top: 50px;
+            }
+            .img-box{
+                img{
+                    max-width: 300px;
+                    margin: auto;
+                }
+            }
+        }
 
     }
 
+}
+@media (max-width:767px) {
+  
+    header{
+        min-height: 100%;
+        padding-bottom: 0;
+        
+    }
 }
 .button{
     width: 100%;
@@ -191,6 +283,11 @@ h2{
         a{
             font-weight: 550;
             color: #00204a;
+        }
+    }
+    @media (max-width:768px) {
+        div{
+            width: 100%;
         }
     }
 
